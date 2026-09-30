@@ -1,8 +1,233 @@
-/*
+.tellme-keyword-row .setting-item-info {
+	display: none;
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+.tellme-keyword-row .setting-item-control {
+	width: 100%;
+	display: flex;
+	gap: 8px;
+	justify-content: space-between;
+}
 
-If your plugin does not need CSS, delete this file.
+.tellme-keyword-row .setting-item-control input[type="text"] {
+	flex: 1;
+}
 
-*/
+/* Local Model Manager Styles */
+.tellme-model-filter-bar {
+	display: flex;
+	gap: 8px;
+	margin: 12px 0 16px 0;
+}
+
+.tellme-filter-btn {
+	padding: 4px 12px;
+	font-size: 0.85em;
+	border-radius: 4px;
+	background-color: var(--background-secondary);
+	color: var(--text-muted);
+	border: 1px solid var(--background-modifier-border);
+	cursor: pointer;
+}
+
+.tellme-filter-btn.is-active {
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border-color: var(--interactive-accent);
+}
+
+.tellme-model-cards-container {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 8px;
+}
+
+.tellme-model-card {
+	background-color: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	padding: 14px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.tellme-model-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.tellme-model-title {
+	margin: 0;
+	font-size: 1.05em;
+	font-weight: 600;
+	color: var(--text-normal);
+}
+
+.tellme-model-badges {
+	display: flex;
+	gap: 6px;
+	align-items: center;
+}
+
+.tellme-badge {
+	font-size: 0.75em;
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-weight: 500;
+}
+
+.tellme-badge-type {
+	background-color: var(--background-modifier-border);
+	color: var(--text-muted);
+}
+
+.tellme-badge-profile.tellme-badge-fast {
+	background-color: rgba(46, 204, 113, 0.15);
+	color: var(--text-success, #2ecc71);
+}
+
+.tellme-badge-profile.tellme-badge-balanced {
+	background-color: rgba(52, 152, 219, 0.15);
+	color: var(--text-accent, #3498db);
+}
+
+.tellme-badge-profile.tellme-badge-accurate {
+	background-color: rgba(155, 89, 182, 0.15);
+	color: #9b59b6;
+}
+
+.tellme-badge-installed {
+	background-color: rgba(46, 204, 113, 0.2);
+	color: var(--text-success, #2ecc71);
+	border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.tellme-badge-active {
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+}
+
+.tellme-model-meta {
+	display: flex;
+	gap: 16px;
+	font-size: 0.85em;
+	color: var(--text-muted);
+}
+
+.tellme-model-desc {
+	margin: 0;
+	font-size: 0.9em;
+	color: var(--text-muted);
+	line-height: 1.4;
+}
+
+.tellme-model-progress-container {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin: 4px 0;
+}
+
+.tellme-model-progress-container.is-hidden {
+	display: none;
+}
+
+.tellme-model-progress-text {
+	font-size: 0.8em;
+	color: var(--text-muted);
+}
+
+.tellme-model-actions {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	margin-top: 4px;
+}
+
+/* Download progress pop-up (persistent notice with a native progress bar). */
+.tellme-download-notice {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 220px;
+}
+
+.tellme-download-notice-title {
+	font-weight: var(--font-semibold);
+}
+
+.tellme-download-notice-text {
+	font-size: 0.85em;
+	color: var(--text-muted);
+}
+
+/* Recording indicator: gentle pulse on the status bar item while recording. */
+.tellme-statusbar-recording {
+	animation: tellme-recording-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes tellme-recording-pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.45;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tellme-statusbar-recording {
+		animation: none;
+	}
+}
+
+/* Collapsed "Advanced" block in the Transcription section. */
+.tellme-advanced {
+	margin: 8px 0 12px;
+}
+
+.tellme-advanced > summary {
+	cursor: pointer;
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	padding: 6px 0;
+}
+
+.tellme-model-license {
+	margin: 0;
+	font-size: 0.8em;
+	color: var(--text-faint);
+}
+
+/* Green "it worked" notice (settings saved, connection OK). */
+.notice:has(.tellme-notice-success) {
+	background-color: rgba(var(--color-green-rgb), 0.9);
+	color: var(--text-on-accent);
+}
+
+/* Connection status under "Test connection". */
+.tellme-status-ok {
+	color: var(--color-green);
+}
+
+.tellme-status-error {
+	color: var(--text-error);
+}
+
+/* Small, compact green "Saved" confirmation after a settings change. */
+.notice:has(.tellme-notice-saved) {
+	background-color: var(--color-green);
+	color: var(--text-on-accent);
+	padding: 4px 12px;
+	min-width: 0;
+	width: fit-content;
+	margin-left: auto;
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-semibold);
+}

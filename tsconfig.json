@@ -13,7 +13,9 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"allowSyntheticDefaultImports": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
 		"lib": ["ES2021", "DOM"]
 	},
-	"include": ["src/**/*.ts"]
+	"include": ["src/**/*.ts", "tests/**/*.ts"]
 }
